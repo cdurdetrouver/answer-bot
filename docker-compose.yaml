@@ -1,0 +1,12 @@
+services:
+  answer-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    environment:
+      - RUST_BACKTRACE=full
+    volumes:
+      - ./blind_test/music.json:/usr/src/app/blind_test/music.json
+    command: ["answer-bot"]
